@@ -66,6 +66,7 @@ output.append('This is another line');
                 <p>Step 1 Output:</p>                    
                 <div class='well output'>
                 </div>
+		<p>Once you've done that -- don't over think it -- move on to Step 2</p>
               </div>
             </div>
           </div>
@@ -91,8 +92,8 @@ getTemperature(32605, function(temp) {
     // The temp variable is set to some value;
 });
                   </pre>
-                  The goal of this step is to use <code>getTemperature(...)</code>
-                  to print the temperature to the screen.
+                  The goal of this step is to call <code>getTemperature(...)</code>
+                  and have it print the temperature to the Output below.
                 </p>
                 
                 <p>Step 2 Output:</p>                    
@@ -117,14 +118,14 @@ getTemperature(32605, function(temp) {
             <div id="collapseMultiple" class='multiple-temperature panel-collapse collapse'>
               <div class='panel-body'>
                 <p>
-                  Finally, suppose we need to get the temperature at more than
+                  Suppose we need to get the temperature at more than
                   one location.  For example, I have an array of ZIP codes, and
                   I want to get an array of temperatures using the 
-                  <code>getTemperature(...)</code> function described above.
+                  <code>getTemperature(...)</code> function described in Step #2.
                 </p>
                 <p>
                   Implement some way of doing this in
-                  <i>Step4-MultipleTemperatures.js</i>
+                  <i>Step3-MultipleTemperatures.js</i>
                 </p>
                 <pre>
 getTemperatures([32605, 11201, 90210], function(results) {
