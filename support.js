@@ -58,3 +58,26 @@ var getTemperature = function(zipCode, callback) {
     callback(temp);
   }, waitTime);
 }
+
+
+// The somewhat inaccurate implementation of getTemperatures()
+var getTemperatures = function(zipCodes, callback) {
+  var results = new Object();
+  var length = zipCodes.length;
+  
+  getTemperature(zipCodes[0], function(temp) {
+         results[zipCodes[0].toString()] = temp;
+  });
+  getTemperature(zipCodes[1], function(temp) {
+         results[zipCodes[1].toString()] = temp;
+  });
+  getTemperature(zipCodes[2], function(temp) {
+         results[zipCodes[2].toString()] = temp;
+  });
+  var waitTime = 1000 * 3;
+  _.delay(function() {
+    callback(results);
+  }, waitTime);
+}
+
+
