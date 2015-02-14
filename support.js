@@ -80,4 +80,21 @@ var getTemperatures = function(zipCodes, callback) {
   }, waitTime);
 }
 
-
+/* I try to implement getTemperatures() in a more general way
+var getTemperatures = function(zipCodes, callback) {
+  var results = new Object();
+  var results = [];
+  var len = zipCodes.length;
+  for (index = 0; index < zipCodes.length; index++) {
+      var zip = zipCodes[index];
+      var temp = 0;
+      getTemperature(zip, function(temp) {
+         results[zip.toString()] = temp;
+      });
+  }
+  var waitTime = 1000 * len;
+  _.delay(function() {
+    callback(results);
+  }, waitTime);
+}
+*/
