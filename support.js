@@ -63,38 +63,18 @@ var getTemperature = function(zipCode, callback) {
 // The somewhat inaccurate implementation of getTemperatures()
 var getTemperatures = function(zipCodes, callback) {
   var results = new Object();
-  var length = zipCodes.length;
-  
-  getTemperature(zipCodes[0], function(temp) {
-         results[zipCodes[0].toString()] = temp;
-  });
-  getTemperature(zipCodes[1], function(temp) {
-         results[zipCodes[1].toString()] = temp;
-  });
-  getTemperature(zipCodes[2], function(temp) {
-         results[zipCodes[2].toString()] = temp;
-  });
-  var waitTime = 1000 * 3;
-  _.delay(function() {
-    callback(results);
-  }, waitTime);
-}
-
-/* I try to implement getTemperatures() in a more general way
-var getTemperatures = function(zipCodes, callback) {
-  var results = new Object();
-  var results = [];
   var len = zipCodes.length;
-  for (index = 0; index < zipCodes.length; index++) {
-      var zip = zipCodes[index];
-      var temp = 0;
+  var done = _.after(len, function(value) {
+          _.delay(function() {
+          callback(results);
+          }, len * 1000);
+  })
+  _.each(zipCodes, function(zip) {
       getTemperature(zip, function(temp) {
          results[zip.toString()] = temp;
-      });
-  }
-  var waitTime = 1000 * len;
-  _.delay(function() {
-    callback(results);
-  }, waitTime);
+      })
+      done(results);
+  });
 }
-*/
+
+
