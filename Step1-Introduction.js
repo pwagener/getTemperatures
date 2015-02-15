@@ -7,7 +7,7 @@ $(document).ready(function() {
   
   // Create a view to write content to the Introduction Output DIV
   var output = new OutputView({ el: $('.introduction .output') });
-
+  output.append('This presentation is awesome!');
   // Append something to 'output' here to make sure you can see
   // it on the screen
 });
